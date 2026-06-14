@@ -903,9 +903,140 @@ const PRODUCTS = {
     { code: 'S12', name: 'MFK Baccarat Rouge 540 '97 1:1', sub: 'Unisex · Floral Woody', price: 55.00, emoji: '  ' },
   ],
   apparel: [
-    { code: 'A01', name: 'Novus Forte Classic Hoodie', sub: 'Heavyweight · Black & Gold', price: 55.00, emoji: '  ', tag: 'NEW' },
-    { code: 'A02', name: 'Essential White Tee', sub: 'Premium Cotton · Unisex', price: 28.00, emoji: ' ' },
-    { code: 'A03', name: 'Monogram Jogger Set', sub: 'French Terry · Black', price: 85.00, emoji: '  ', tag: 'SET' },
-    { code: 'A04', name: 'Gold Logo Crewneck', sub: 'Heavyweight · Cream', price: 55.00, emoji: ' ' },
-    { code: 'A05', name: 'NF Cargo Shorts', sub: 'Ripstop · Black', price: 45.00, emoji: '  ' },
-    { code: 'A06', name: 'Premium Zip Hoodie', sub: 'Heavyweight ·}
+    { code: 'A01', name: 'Limo Black Set', sub: 'Short + Playera · Unisex', price: 70.00, sizes: ['XS','S','M','L','XL'], img: 'set-limo-black.jpg', tag: 'SET' },
+    { code: 'A02', name: 'Dark Oatmeal Set', sub: 'Short + Playera · Unisex', price: 70.00, sizes: ['XS','S','M','L','XL'], img: 'set-dark-oatmeal.jpg', tag: 'SET' },
+    { code: 'A03', name: 'Light Oatmeal Set', sub: 'Short + Playera · Unisex', price: 70.00, sizes: ['XS','S','M','L','XL'], img: 'set-light-oatmeal.jpg', tag: 'SET' }
+  ]
+};
+
+// ── ── RENDER ── ── ── ── ── ──
+let currentTab = 'scents';
+let currentLang = 'en';
+
+function switchTab(tab) {
+  currentTab = tab;
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('tab-' + tab).classList.add('active');
+  filterProducts();
+}
+
+function filterProducts() {
+  const q = (document.getElementById('searchInput').value || '').toLowerCase();
+  const items = PRODUCTS[currentTab].filter(p =>
+    p.name.toLowerCase().includes(q) || p.sub.toLowerCase().includes(q)
+  );
+  renderGrid(items);
+}
+
+function renderGrid(items) {
+  const grid = document.getElementById('productGrid');
+  if (!items.length) {
+    grid.innerHTML = '<p style="color:var(--mid-gray);font-size:13px;padding:40px 0;">No products found.</p>';
+    return;
+  }
+  grid.innerHTML = items.map(p => `
+    <div class="product-card" onclick="openModal('${p.code}')">
+      <div class="product-img">
+        ${p.img
+          ? `<img src="${p.img}" alt="${p.name}" style="width:100%;height:100%;object-fit:cover;">`
+          : `<span class="product-img-placeholder">${p.emoji || '?'}</span>`
+        }
+      </div>
+      <div class="product-body">
+        ${p.tag ? `<span class="product-tag">${p.tag}</span>` : ''}
+        <span class="product-code">${p.code}</span>
+        <div class="product-name">${p.name}</div>
+        <div class="product-sub">${p.sub}</div>
+        ${p.sizes ? `<div class="product-sizes" style="margin-top:6px;font-size:10px;color:var(--mid-gray);">Tallas: ${p.sizes.join(' · ')}</div>` : ''}
+        <div class="product-price">$${p.price.toFixed(2)}</div>
+        <button class="add-to-cart-btn" onclick="event.stopPropagation();addToCart('${p.code}')">ADD TO CART</button>
+      </div>
+    </div>
+  `).join('');
+}
+
+// ── CART ──
+let cart = [];
+
+function addToCart(code) {
+  const all = [...PRODUCTS.scents, ...PRODUCTS.apparel];
+  const p = all.find(x => x.code === code);
+  if (!p) return;
+  const existing = cart.find(x => x.code === code);
+  if (existing) { existing.qty++; } else { cart.push({...p, qty: 1}); }
+  updateCart();
+  openCart();
+}
+
+function removeFromCart(code) {
+  cart = cart.filter(x => x.code !== code);
+  updateCart();
+}
+
+function updateCart() {
+  const count = cart.reduce((s, x) => s + x.qty, 0);
+  document.getElementById('cartCount').textContent = count;
+  const itemsEl = document.getElementById('cartItems');
+  const emptyMsg = document.getElementById('cartEmptyMsg');
+  if (!cart.length) {
+    emptyMsg.style.display = '';
+    itemsEl.innerHTML = '<p class="cart-empty" id="cartEmptyMsg">Your cart is empty</p>';
+    document.getElementById('cartWaBtn').href = '#';
+    return;
+  }
+  emptyMsg && (emptyMsg.style.display = 'none');
+  let total = 0;
+  itemsEl.innerHTML = cart.map(x => {
+    total += x.price * x.qty;
+    return `<div class="cart-item">
+      <div class="cart-item-info">
+        <div class="cart-item-name">${x.name}</div>
+        <div class="cart-item-price">$${x.price.toFixed(2)} x${x.qty}</div>
+      </div>
+      <button class="cart-item-remove" onclick="removeFromCart('${x.code}')">✕</button>
+    </div>`;
+  }).join('') + `<div class="cart-total">Total: $${total.toFixed(2)}</div>`;
+
+  const msg = cart.map(x => `${x.qty}x ${x.name} ($${x.price})`).join('%0A') + `%0A%0ATotal: $${total.toFixed(2)}`;
+  document.getElementById('cartWaBtn').href = `https://wa.me/19497422813?text=ORDER:%0A${msg}`;
+}
+
+function openCart() {
+  document.getElementById('cartPanel').classList.add('open');
+  document.getElementById('cartOverlay').classList.add('open');
+}
+
+function toggleCart() {
+  document.getElementById('cartPanel').classList.toggle('open');
+  document.getElementById('cartOverlay').classList.toggle('open');
+}
+
+function openModal(code) {
+  const all = [...PRODUCTS.scents, ...PRODUCTS.apparel];
+  const p = all.find(x => x.code === code);
+  if (!p) return;
+  document.getElementById('modalName').textContent = p.name;
+  document.getElementById('modalSub').textContent = p.sub;
+  document.getElementById('modalPrice').textContent = '$' + p.price.toFixed(2);
+  document.getElementById('modalCode').textContent = p.code;
+  const imgEl = document.getElementById('modalImg');
+  if (p.img) {
+    imgEl.innerHTML = `<img src="${p.img}" alt="${p.name}" style="width:100%;height:100%;object-fit:cover;">`;
+  } else {
+    imgEl.innerHTML = `<span style="font-size:60px;">${p.emoji || '?'}</span>`;
+  }
+  document.getElementById('modalAddBtn').onclick = () => { addToCart(p.code); closeModal(); };
+  document.getElementById('productModal').classList.add('open');
+  document.getElementById('modalOverlay').classList.add('open');
+}
+
+function closeModal() {
+  document.getElementById('productModal').classList.remove('open');
+  document.getElementById('modalOverlay').classList.remove('open');
+}
+
+// ── INIT ──
+filterProducts();
+</script>
+</body>
+</html>
