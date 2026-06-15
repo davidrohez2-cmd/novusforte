@@ -4,410 +4,133 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#ffffff">
-<meta name="description" content="Novus Forte '97 Designer-inspired scents and premium essentials. Direct from California.">
-<meta property="og:title" content="Novus Forte '97 Scents &amp; Essentials">
+<meta name="description" content="Novus Forte Designer-inspired scents and premium essentials. Direct from California.">
+<meta property="og:title" content="Novus Forte Scents and Essentials">
 <meta property="og:description" content="Designer-inspired fragrances and premium apparel. DM to order.">
-<meta name="twitter:card" content="summary_large_image">
-<title>Novus Forte '97 Scents &amp; Essentials</title>
+<title>Novus Forte Scents and Essentials</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-:root {
-  --gold: #b8952a;
-  --gold-light: #d4af4f;
-  --gold-pale: #f5edd8;
-  --white: #ffffff;
-  --off-white: #fafaf8;
-  --light-gray: #f0ede8;
-  --mid-gray: #999;
-  --dark: #1a1a1a;
-  --black: #0d0d0d;
-  --font-body: 'Montserrat', sans-serif;
-  --font-serif: 'Cormorant Garamond', serif;
-}
-
-body {
-  font-family: var(--font-body);
-  background: var(--off-white);
-  color: var(--dark);
-  overflow-x: hidden;
-}
-
-/* ── NAV ── */
-.nav {
-  position: fixed;
-  top: 0; left: 0; right: 0;
-  z-index: 100;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0 2rem;
-  height: 64px;
-  background: rgba(255,255,255,0.92);
-  backdrop-filter: blur(12px);
-  border-bottom: 1px solid rgba(184,149,42,0.15);
-}
-.nav-logo {
-  font-family: var(--font-serif);
-  font-size: 1.5rem;
-  font-weight: 500;
-  letter-spacing: 0.08em;
-  color: var(--black);
-  text-decoration: none;
-}
-.nav-logo span { color: var(--gold); }
-.nav-actions { display: flex; gap: 1rem; align-items: center; }
-.nav-cart-btn {
-  background: none; border: none; cursor: pointer;
-  font-size: 1.25rem; position: relative; padding: 4px;
-}
-.cart-count {
-  position: absolute; top: -4px; right: -4px;
-  background: var(--gold); color: #fff;
-  font-size: 0.6rem; font-weight: 700;
-  width: 16px; height: 16px;
-  border-radius: 50%;
-  display: flex; align-items: center; justify-content: center;
-  display: none;
-}
-
-/* ── HERO ── */
-.hero {
-  margin-top: 64px;
-  min-height: calc(100vh - 64px);
-  background: linear-gradient(135deg, #0d0d0d 0%, #1a1a1a 50%, #0f0f0f 100%);
-  display: flex; align-items: center; justify-content: center;
-  text-align: center;
-  padding: 4rem 2rem;
-  position: relative;
-  overflow: hidden;
-}
-.hero::before {
-  content: '';
-  position: absolute; inset: 0;
-  background: radial-gradient(ellipse at center, rgba(184,149,42,0.12) 0%, transparent 70%);
-}
-.hero-inner { position: relative; z-index: 1; max-width: 700px; }
-.hero-eyebrow {
-  font-size: 0.7rem; letter-spacing: 0.25em;
-  color: var(--gold); text-transform: uppercase; margin-bottom: 1.5rem;
-}
-.hero-title {
-  font-family: var(--font-serif);
-  font-size: clamp(3rem, 8vw, 6rem);
-  font-weight: 400; line-height: 1;
-  color: var(--white); margin-bottom: 0.25rem;
-}
-.hero-title em { color: var(--gold); font-style: italic; }
-.hero-year {
-  font-family: var(--font-serif);
-  font-size: clamp(1rem, 3vw, 1.5rem);
-  color: rgba(255,255,255,0.35);
-  letter-spacing: 0.3em;
-  margin-bottom: 2rem;
-}
-.hero-sub {
-  font-size: 0.78rem; letter-spacing: 0.15em;
-  color: rgba(255,255,255,0.5);
-  text-transform: uppercase; margin-bottom: 3rem;
-  line-height: 2;
-}
-.btn-primary {
-  display: inline-block;
-  padding: 0.9rem 2.5rem;
-  border: 1px solid var(--gold);
-  color: var(--gold);
-  font-family: var(--font-body);
-  font-size: 0.7rem; font-weight: 600;
-  letter-spacing: 0.2em; text-transform: uppercase;
-  text-decoration: none; cursor: pointer;
-  background: transparent;
-  transition: all 0.3s;
-}
-.btn-primary:hover {
-  background: var(--gold); color: var(--black);
-}
-
-/* ── CATEGORIES ── */
-.categories {
-  padding: 5rem 2rem;
-  background: var(--white);
-  text-align: center;
-}
-.section-label {
-  font-size: 0.65rem; letter-spacing: 0.3em;
-  color: var(--gold); text-transform: uppercase; margin-bottom: 0.75rem;
-}
-.section-title {
-  font-family: var(--font-serif);
-  font-size: clamp(2rem, 5vw, 3rem);
-  font-weight: 400; margin-bottom: 0.5rem;
-}
-.section-sub {
-  font-size: 0.78rem; color: var(--mid-gray);
-  letter-spacing: 0.1em; margin-bottom: 3rem;
-}
-.cat-grid {
-  display: grid; grid-template-columns: 1fr 1fr;
-  gap: 1.5rem; max-width: 900px; margin: 0 auto;
-}
-.cat-card {
-  background: var(--off-white);
-  padding: 3rem 2rem;
-  border: 1px solid transparent;
-  transition: border-color 0.3s;
-  cursor: pointer;
-}
-.cat-card:hover { border-color: var(--gold); }
-.cat-icon { font-size: 2.5rem; margin-bottom: 1rem; }
-.cat-name {
-  font-family: var(--font-serif);
-  font-size: 1.5rem; margin-bottom: 0.5rem;
-}
-.cat-desc { font-size: 0.72rem; color: var(--mid-gray); letter-spacing: 0.1em; }
-
-/* ── CTA STRIP ── */
-.cta-strip {
-  background: var(--black);
-  padding: 4rem 2rem;
-  text-align: center;
-}
-.cta-strip h2 {
-  font-family: var(--font-serif);
-  font-size: clamp(1.5rem, 4vw, 2.5rem);
-  color: var(--white); font-weight: 400; margin-bottom: 0.5rem;
-}
-.cta-strip p {
-  font-size: 0.75rem; color: rgba(255,255,255,0.5);
-  letter-spacing: 0.15em; margin-bottom: 2rem;
-}
-.btn-outline-gold {
-  display: inline-block;
-  padding: 0.9rem 2.5rem;
-  border: 1px solid var(--gold);
-  color: var(--gold);
-  font-size: 0.7rem; font-weight: 600;
-  letter-spacing: 0.2em; text-transform: uppercase;
-  text-decoration: none; cursor: pointer; background: transparent;
-  transition: all 0.3s;
-}
-.btn-outline-gold:hover { background: var(--gold); color: var(--black); }
-
-/* ── CATALOG ── */
-.catalog {
-  padding: 5rem 2rem;
-  background: var(--off-white);
-}
-.catalog-header { text-align: center; margin-bottom: 3rem; }
-.tab-row {
-  display: flex; justify-content: center; gap: 0; margin-bottom: 3rem;
-  border-bottom: 1px solid #e0ddd8;
-}
-.tab-btn {
-  padding: 0.75rem 2rem;
-  border: none; background: none; cursor: pointer;
-  font-size: 0.68rem; font-weight: 600; letter-spacing: 0.2em;
-  color: var(--mid-gray); border-bottom: 2px solid transparent;
-  margin-bottom: -1px; transition: all 0.2s;
-}
-.tab-btn.active { color: var(--gold); border-bottom-color: var(--gold); }
-.product-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-  gap: 2rem; max-width: 1100px; margin: 0 auto;
-}
-.product-card {
-  background: var(--white);
-  border: 1px solid transparent;
-  cursor: pointer; transition: border-color 0.3s, box-shadow 0.3s;
-  overflow: hidden;
-}
-.product-card:hover {
-  border-color: var(--gold);
-  box-shadow: 0 8px 30px rgba(184,149,42,0.1);
-}
-.prod-img-wrap {
-  width: 100%; aspect-ratio: 1;
-  background: var(--light-gray);
-  overflow: hidden; display: flex; align-items: center; justify-content: center;
-}
-.prod-img-wrap img { width: 100%; height: 100%; object-fit: cover; }
-.prod-img-wrap .prod-placeholder {
-  font-size: 3rem; opacity: 0.3;
-}
-.prod-body { padding: 1.25rem; }
-.prod-tag {
-  font-size: 0.58rem; letter-spacing: 0.2em;
-  color: var(--gold); text-transform: uppercase; margin-bottom: 0.4rem;
-}
-.prod-name {
-  font-family: var(--font-serif);
-  font-size: 1.1rem; font-weight: 500; margin-bottom: 0.25rem;
-}
-.prod-sub { font-size: 0.68rem; color: var(--mid-gray); margin-bottom: 0.75rem; }
-.prod-footer { display: flex; align-items: center; justify-content: space-between; }
-.prod-price { font-size: 0.85rem; font-weight: 600; color: var(--dark); }
-.prod-add {
-  width: 32px; height: 32px; border-radius: 50%;
-  background: var(--gold); color: white;
-  border: none; cursor: pointer; font-size: 1.1rem;
-  display: flex; align-items: center; justify-content: center;
-  transition: background 0.2s;
-}
-.prod-add:hover { background: var(--gold-light); }
-.empty-state {
-  text-align: center; padding: 4rem; color: var(--mid-gray);
-  grid-column: 1 / -1;
-}
-.empty-state p { font-size: 0.85rem; }
-
-/* ── MODAL ── */
-.modal-overlay {
-  display: none; position: fixed; inset: 0;
-  background: rgba(0,0,0,0.7); z-index: 200;
-  align-items: center; justify-content: center;
-  padding: 1rem;
-}
-.modal-overlay.open { display: flex; }
-.modal-box {
-  background: var(--white);
-  max-width: 700px; width: 100%;
-  display: grid; grid-template-columns: 1fr 1fr;
-  max-height: 90vh; overflow: auto;
-}
-.modal-img {
-  width: 100%; aspect-ratio: 1;
-  background: var(--light-gray);
-  overflow: hidden; display: flex; align-items: center; justify-content: center;
-}
-.modal-img img { width: 100%; height: 100%; object-fit: cover; }
-.modal-img .modal-placeholder { font-size: 4rem; opacity: 0.3; }
-.modal-body { padding: 2rem; display: flex; flex-direction: column; gap: 1rem; }
-.modal-tag { font-size: 0.6rem; letter-spacing: 0.25em; color: var(--gold); text-transform: uppercase; }
-.modal-name { font-family: var(--font-serif); font-size: 1.6rem; font-weight: 400; line-height: 1.2; }
-.modal-sub { font-size: 0.72rem; color: var(--mid-gray); }
-.modal-price { font-size: 1.2rem; font-weight: 600; color: var(--dark); }
-.size-label { font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--mid-gray); margin-bottom: 0.5rem; }
-.size-row { display: flex; gap: 0.5rem; flex-wrap: wrap; }
-.size-btn {
-  padding: 0.4rem 0.8rem; border: 1px solid #ddd;
-  background: none; cursor: pointer; font-size: 0.7rem;
-  font-family: var(--font-body); transition: all 0.2s;
-}
-.size-btn.active { border-color: var(--gold); background: var(--gold); color: white; }
-.modal-add {
-  padding: 0.9rem; background: var(--black); color: var(--white);
-  border: none; cursor: pointer; font-family: var(--font-body);
-  font-size: 0.7rem; font-weight: 600; letter-spacing: 0.2em;
-  text-transform: uppercase; transition: background 0.2s; margin-top: auto;
-}
-.modal-add:hover { background: var(--gold); }
-.modal-close {
-  position: absolute; top: 1rem; right: 1rem;
-  background: var(--white); border: 1px solid #ddd;
-  width: 36px; height: 36px; border-radius: 50%;
-  cursor: pointer; font-size: 1rem; display: flex; align-items: center; justify-content: center;
-}
-.modal-overlay { position: fixed; }
-
-/* ── CART DRAWER ── */
-.cart-drawer {
-  position: fixed; top: 0; right: -100%; width: 380px; max-width: 100%;
-  height: 100vh; background: var(--white); z-index: 300;
-  box-shadow: -4px 0 30px rgba(0,0,0,0.15);
-  transition: right 0.35s ease;
-  display: flex; flex-direction: column;
-}
-.cart-drawer.open { right: 0; }
-.cart-header {
-  padding: 1.5rem; border-bottom: 1px solid var(--light-gray);
-  display: flex; align-items: center; justify-content: space-between;
-}
-.cart-header h3 { font-family: var(--font-serif); font-size: 1.3rem; }
-.cart-close { background: none; border: none; cursor: pointer; font-size: 1.2rem; }
-.cart-items { flex: 1; overflow-y: auto; padding: 1rem; }
-.cart-item {
-  display: flex; gap: 1rem; padding: 1rem 0;
-  border-bottom: 1px solid var(--light-gray);
-}
-.cart-item-img {
-  width: 60px; height: 60px; background: var(--light-gray);
-  overflow: hidden; flex-shrink: 0;
-  display: flex; align-items: center; justify-content: center;
-}
-.cart-item-img img { width: 100%; height: 100%; object-fit: cover; }
-.cart-item-info { flex: 1; }
-.cart-item-name { font-size: 0.8rem; font-weight: 600; margin-bottom: 0.25rem; }
-.cart-item-sub { font-size: 0.7rem; color: var(--mid-gray); margin-bottom: 0.25rem; }
-.cart-item-price { font-size: 0.8rem; font-weight: 600; color: var(--gold); }
-.cart-item-remove { background: none; border: none; cursor: pointer; color: var(--mid-gray); font-size: 1rem; }
-.cart-footer { padding: 1.5rem; border-top: 1px solid var(--light-gray); }
-.cart-total { display: flex; justify-content: space-between; margin-bottom: 1rem; }
-.cart-total span { font-size: 0.85rem; font-weight: 600; }
-.btn-checkout {
-  width: 100%; padding: 1rem; background: var(--black); color: var(--white);
-  border: none; cursor: pointer; font-family: var(--font-body);
-  font-size: 0.7rem; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase;
-}
-.btn-checkout:hover { background: var(--gold); }
-.cart-empty { text-align: center; padding: 3rem 1rem; color: var(--mid-gray); font-size: 0.85rem; }
-.cart-backdrop {
-  display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.4); z-index: 299;
-}
-.cart-backdrop.open { display: block; }
-
-/* ── FOOTER ── */
-.footer {
-  background: var(--black); color: rgba(255,255,255,0.4);
-  padding: 3rem 2rem; text-align: center;
-}
-.footer-logo {
-  font-family: var(--font-serif); font-size: 1.8rem;
-  color: var(--white); margin-bottom: 0.5rem;
-}
-.footer-logo span { color: var(--gold); }
-.footer-tagline { font-size: 0.65rem; letter-spacing: 0.3em; text-transform: uppercase; margin-bottom: 2rem; }
-.footer-links { display: flex; gap: 2rem; justify-content: center; margin-bottom: 2rem; flex-wrap: wrap; }
-.footer-links a { color: rgba(255,255,255,0.4); font-size: 0.68rem; letter-spacing: 0.15em; text-decoration: none; }
-.footer-links a:hover { color: var(--gold); }
-.footer-copy { font-size: 0.62rem; letter-spacing: 0.1em; }
-
-@media (max-width: 600px) {
-  .cat-grid { grid-template-columns: 1fr; }
-  .modal-box { grid-template-columns: 1fr; }
-  .modal-img { aspect-ratio: 4/3; }
-  .cart-drawer { width: 100%; }
-}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--gold:#b8952a;--gold-light:#d4af4f;--gold-pale:#f5edd8;--white:#ffffff;--off-white:#fafaf8;--light-gray:#f0ede8;--mid-gray:#999;--dark:#1a1a1a;--black:#0d0d0d;--font-body:"Montserrat",sans-serif;--font-serif:"Cormorant Garamond",serif}
+body{font-family:var(--font-body);background:var(--off-white);color:var(--dark);overflow-x:hidden}
+.nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:0 2rem;height:64px;background:rgba(255,255,255,0.92);backdrop-filter:blur(12px);border-bottom:1px solid rgba(184,149,42,0.15)}
+.nav-logo{font-family:var(--font-serif);font-size:1.5rem;font-weight:500;letter-spacing:0.08em;color:var(--black);text-decoration:none}
+.nav-logo span{color:var(--gold)}
+.nav-actions{display:flex;gap:1rem;align-items:center}
+.nav-cart-btn{background:none;border:none;cursor:pointer;font-size:1.25rem;position:relative;padding:4px}
+.cart-count{position:absolute;top:-4px;right:-4px;background:var(--gold);color:#fff;font-size:.6rem;font-weight:700;width:16px;height:16px;border-radius:50%;display:none;align-items:center;justify-content:center}
+.hero{margin-top:64px;min-height:calc(100vh - 64px);background:linear-gradient(135deg,#0d0d0d 0%,#1a1a1a 50%,#0f0f0f 100%);display:flex;align-items:center;justify-content:center;text-align:center;padding:4rem 2rem;position:relative;overflow:hidden}
+.hero::before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at center,rgba(184,149,42,0.12) 0%,transparent 70%)}
+.hero-inner{position:relative;z-index:1;max-width:700px}
+.hero-eyebrow{font-size:.7rem;letter-spacing:.25em;color:var(--gold);text-transform:uppercase;margin-bottom:1.5rem}
+.hero-title{font-family:var(--font-serif);font-size:clamp(3rem,8vw,6rem);font-weight:400;line-height:1;color:var(--white);margin-bottom:.25rem}
+.hero-title em{color:var(--gold);font-style:italic}
+.hero-year{font-family:var(--font-serif);font-size:clamp(1rem,3vw,1.5rem);color:rgba(255,255,255,.35);letter-spacing:.3em;margin-bottom:2rem}
+.hero-sub{font-size:.78rem;letter-spacing:.15em;color:rgba(255,255,255,.5);text-transform:uppercase;margin-bottom:3rem;line-height:2}
+.btn-primary{display:inline-block;padding:.9rem 2.5rem;border:1px solid var(--gold);color:var(--gold);font-family:var(--font-body);font-size:.7rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;text-decoration:none;cursor:pointer;background:transparent;transition:all .3s}
+.btn-primary:hover{background:var(--gold);color:var(--black)}
+.categories{padding:5rem 2rem;background:var(--white);text-align:center}
+.section-label{font-size:.65rem;letter-spacing:.3em;color:var(--gold);text-transform:uppercase;margin-bottom:.75rem}
+.section-title{font-family:var(--font-serif);font-size:clamp(2rem,5vw,3rem);font-weight:400;margin-bottom:.5rem}
+.section-sub{font-size:.78rem;color:var(--mid-gray);letter-spacing:.1em;margin-bottom:3rem}
+.cat-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;max-width:900px;margin:0 auto}
+.cat-card{background:var(--off-white);padding:3rem 2rem;border:1px solid transparent;transition:border-color .3s;cursor:pointer}
+.cat-card:hover{border-color:var(--gold)}
+.cat-icon{font-size:2.5rem;margin-bottom:1rem}
+.cat-name{font-family:var(--font-serif);font-size:1.5rem;margin-bottom:.5rem}
+.cat-desc{font-size:.72rem;color:var(--mid-gray);letter-spacing:.1em}
+.cta-strip{background:var(--black);padding:4rem 2rem;text-align:center}
+.cta-strip h2{font-family:var(--font-serif);font-size:clamp(1.5rem,4vw,2.5rem);color:var(--white);font-weight:400;margin-bottom:.5rem}
+.cta-strip p{font-size:.75rem;color:rgba(255,255,255,.5);letter-spacing:.15em;margin-bottom:2rem}
+.btn-outline-gold{display:inline-block;padding:.9rem 2.5rem;border:1px solid var(--gold);color:var(--gold);font-size:.7rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;text-decoration:none;cursor:pointer;background:transparent;transition:all .3s}
+.btn-outline-gold:hover{background:var(--gold);color:var(--black)}
+.catalog{padding:5rem 2rem;background:var(--off-white)}
+.catalog-header{text-align:center;margin-bottom:3rem}
+.tab-row{display:flex;justify-content:center;margin-bottom:3rem;border-bottom:1px solid #e0ddd8}
+.tab-btn{padding:.75rem 2rem;border:none;background:none;cursor:pointer;font-size:.68rem;font-weight:600;letter-spacing:.2em;color:var(--mid-gray);border-bottom:2px solid transparent;margin-bottom:-1px;transition:all .2s}
+.tab-btn.active{color:var(--gold);border-bottom-color:var(--gold)}
+.product-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:2rem;max-width:1100px;margin:0 auto}
+.product-card{background:var(--white);border:1px solid transparent;cursor:pointer;transition:border-color .3s,box-shadow .3s;overflow:hidden}
+.product-card:hover{border-color:var(--gold);box-shadow:0 8px 30px rgba(184,149,42,.1)}
+.prod-img-wrap{width:100%;aspect-ratio:1;background:var(--light-gray);overflow:hidden;display:flex;align-items:center;justify-content:center}
+.prod-img-wrap img{width:100%;height:100%;object-fit:cover}
+.prod-body{padding:1.25rem}
+.prod-tag{font-size:.58rem;letter-spacing:.2em;color:var(--gold);text-transform:uppercase;margin-bottom:.4rem}
+.prod-name{font-family:var(--font-serif);font-size:1.1rem;font-weight:500;margin-bottom:.25rem}
+.prod-sub{font-size:.68rem;color:var(--mid-gray);margin-bottom:.75rem}
+.prod-footer{display:flex;align-items:center;justify-content:space-between}
+.prod-price{font-size:.85rem;font-weight:600;color:var(--dark)}
+.prod-add{width:32px;height:32px;border-radius:50%;background:var(--gold);color:white;border:none;cursor:pointer;font-size:1.1rem;display:flex;align-items:center;justify-content:center;transition:background .2s}
+.prod-add:hover{background:var(--gold-light)}
+.empty-state{text-align:center;padding:4rem;color:var(--mid-gray);grid-column:1 / -1}
+.modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.7);z-index:200;align-items:center;justify-content:center;padding:1rem}
+.modal-overlay.open{display:flex}
+.modal-box{background:var(--white);max-width:700px;width:100%;display:grid;grid-template-columns:1fr 1fr;max-height:90vh;overflow:auto;position:relative}
+.modal-img{width:100%;aspect-ratio:1;background:var(--light-gray);overflow:hidden;display:flex;align-items:center;justify-content:center}
+.modal-img img{width:100%;height:100%;object-fit:cover}
+.modal-body{padding:2rem;display:flex;flex-direction:column;gap:1rem}
+.modal-tag{font-size:.6rem;letter-spacing:.25em;color:var(--gold);text-transform:uppercase}
+.modal-name{font-family:var(--font-serif);font-size:1.6rem;font-weight:400;line-height:1.2}
+.modal-sub{font-size:.72rem;color:var(--mid-gray)}
+.modal-price{font-size:1.2rem;font-weight:600;color:var(--dark)}
+.size-label{font-size:.65rem;letter-spacing:.15em;text-transform:uppercase;color:var(--mid-gray);margin-bottom:.5rem}
+.size-row{display:flex;gap:.5rem;flex-wrap:wrap}
+.size-btn{padding:.4rem .8rem;border:1px solid #ddd;background:none;cursor:pointer;font-size:.7rem;font-family:var(--font-body);transition:all .2s}
+.size-btn.active{border-color:var(--gold);background:var(--gold);color:white}
+.modal-add{padding:.9rem;background:var(--black);color:var(--white);border:none;cursor:pointer;font-family:var(--font-body);font-size:.7rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;transition:background .2s;margin-top:auto}
+.modal-add:hover{background:var(--gold)}
+.modal-close{position:absolute;top:1rem;right:1rem;background:var(--white);border:1px solid #ddd;width:36px;height:36px;border-radius:50%;cursor:pointer;font-size:1rem;display:flex;align-items:center;justify-content:center}
+.cart-backdrop{display:none;position:fixed;inset:0;background:rgba(0,0,0,.4);z-index:299}
+.cart-backdrop.open{display:block}
+.cart-drawer{position:fixed;top:0;right:-100%;width:380px;max-width:100%;height:100vh;background:var(--white);z-index:300;box-shadow:-4px 0 30px rgba(0,0,0,.15);transition:right .35s ease;display:flex;flex-direction:column}
+.cart-drawer.open{right:0}
+.cart-header{padding:1.5rem;border-bottom:1px solid var(--light-gray);display:flex;align-items:center;justify-content:space-between}
+.cart-header h3{font-family:var(--font-serif);font-size:1.3rem}
+.cart-close{background:none;border:none;cursor:pointer;font-size:1.2rem}
+.cart-items{flex:1;overflow-y:auto;padding:1rem}
+.cart-item{display:flex;gap:1rem;padding:1rem 0;border-bottom:1px solid var(--light-gray)}
+.cart-item-img{width:60px;height:60px;background:var(--light-gray);overflow:hidden;flex-shrink:0;display:flex;align-items:center;justify-content:center}
+.cart-item-img img{width:100%;height:100%;object-fit:cover}
+.cart-item-info{flex:1}
+.cart-item-name{font-size:.8rem;font-weight:600;margin-bottom:.25rem}
+.cart-item-sub{font-size:.7rem;color:var(--mid-gray);margin-bottom:.25rem}
+.cart-item-price{font-size:.8rem;font-weight:600;color:var(--gold)}
+.cart-item-remove{background:none;border:none;cursor:pointer;color:var(--mid-gray);font-size:1rem}
+.cart-footer{padding:1.5rem;border-top:1px solid var(--light-gray)}
+.cart-total{display:flex;justify-content:space-between;margin-bottom:1rem}
+.cart-total span{font-size:.85rem;font-weight:600}
+.btn-checkout{width:100%;padding:1rem;background:var(--black);color:var(--white);border:none;cursor:pointer;font-family:var(--font-body);font-size:.7rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase}
+.btn-checkout:hover{background:var(--gold)}
+.cart-empty{text-align:center;padding:3rem 1rem;color:var(--mid-gray);font-size:.85rem}
+.footer{background:var(--black);color:rgba(255,255,255,.4);padding:3rem 2rem;text-align:center}
+.footer-logo{font-family:var(--font-serif);font-size:1.8rem;color:var(--white);margin-bottom:.5rem}
+.footer-logo span{color:var(--gold)}
+.footer-tagline{font-size:.65rem;letter-spacing:.3em;text-transform:uppercase;margin-bottom:2rem}
+.footer-links{display:flex;gap:2rem;justify-content:center;margin-bottom:2rem;flex-wrap:wrap}
+.footer-links a{color:rgba(255,255,255,.4);font-size:.68rem;letter-spacing:.15em;text-decoration:none}
+.footer-links a:hover{color:var(--gold)}
+.footer-copy{font-size:.62rem;letter-spacing:.1em}
+@media(max-width:600px){.cat-grid{grid-template-columns:1fr}.modal-box{grid-template-columns:1fr}.cart-drawer{width:100%}}
 </style>
 </head>
 <body>
-
-<!-- NAV -->
 <nav class="nav">
   <a class="nav-logo" href="#">Novus<span>Forte</span></a>
   <div class="nav-actions">
-    <button class="nav-cart-btn" onclick="openCart()" aria-label="Open cart">
-      &#128722;
-      <span class="cart-count" id="cartCount">0</span>
-    </button>
+    <button class="nav-cart-btn" onclick="openCart()" aria-label="Open cart">&#128722;<span class="cart-count" id="cartCount">0</span></button>
   </div>
 </nav>
-
-<!-- HERO -->
 <section class="hero">
   <div class="hero-inner">
     <p class="hero-eyebrow">California &#183; Est. 2024</p>
     <h1 class="hero-title">Novus<em>Forte</em></h1>
-    <p class="hero-year">'97</p>
+    <p class="hero-year">&#8217;97</p>
     <p class="hero-sub">Designer-Inspired Scents &amp; Premium Essentials<br>Made to impress &#183; Priced for everyone</p>
     <a class="btn-primary" href="#catalog">Shop the Collection</a>
   </div>
 </section>
-
-<!-- CATEGORIES -->
 <section class="categories">
   <p class="section-label">Our Collections</p>
   <h2 class="section-title">Curated for the Bold</h2>
@@ -425,15 +148,11 @@ body {
     </div>
   </div>
 </section>
-
-<!-- CTA STRIP -->
 <section class="cta-strip">
   <h2>Order via Instagram</h2>
   <p>DM us to place your order &#8212; fast shipping from California</p>
   <a class="btn-outline-gold" href="https://instagram.com" target="_blank">&#64;novusforte97</a>
 </section>
-
-<!-- CATALOG -->
 <section class="catalog" id="catalog">
   <div class="catalog-header">
     <p class="section-label">The Collection</p>
@@ -446,17 +165,13 @@ body {
   </div>
   <div class="product-grid" id="productGrid"></div>
 </section>
-
-<!-- MODAL -->
-<div class="modal-overlay" id="modal" onclick="closeModal(event)">
+<div class="modal-overlay" id="modal" onclick="closeModalOverlay(event)">
   <div class="modal-box" id="modalBox">
     <div class="modal-img" id="modalImg"></div>
     <div class="modal-body" id="modalBody"></div>
     <button class="modal-close" onclick="closeModalBtn()">&#10005;</button>
   </div>
 </div>
-
-<!-- CART DRAWER -->
 <div class="cart-backdrop" id="cartBackdrop" onclick="closeCart()"></div>
 <div class="cart-drawer" id="cartDrawer">
   <div class="cart-header">
@@ -465,252 +180,159 @@ body {
   </div>
   <div class="cart-items" id="cartItems"></div>
   <div class="cart-footer">
-    <div class="cart-total">
-      <span>Total</span>
-      <span id="cartTotal">$0.00</span>
-    </div>
+    <div class="cart-total"><span>Total</span><span id="cartTotal">$0.00</span></div>
     <button class="btn-checkout" onclick="checkout()">Order via Instagram</button>
   </div>
 </div>
-
-<!-- FOOTER -->
 <footer class="footer">
   <p class="footer-logo">Novus<span>Forte</span></p>
-  <p class="footer-tagline">Scents &amp; Essentials &#8212; Since '97</p>
+  <p class="footer-tagline">Scents &amp; Essentials</p>
   <div class="footer-links">
     <a href="#catalog">Shop</a>
     <a href="https://instagram.com" target="_blank">Instagram</a>
     <a href="#">Contact</a>
   </div>
-  <p class="footer-copy">&copy; 2024 Novus Forte '97. All rights reserved.</p>
+  <p class="footer-copy">&#169; 2024 Novus Forte. All rights reserved.</p>
 </footer>
-
 <script>
-// ── DATA ──
 var scents = [];
-
 var apparel = [
-  {
-    code: "A01",
-    name: "Limo Black Set",
-    sub: "Short + Playera - Unisex",
-    price: 70.00,
-    sizes: ["XS", "S", "M", "L", "XL"],
-    img: "set-limo-black.jpg",
-    tag: "SET"
-  },
-  {
-    code: "A02",
-    name: "Dark Oatmeal Set",
-    sub: "Short + Playera - Unisex",
-    price: 70.00,
-    sizes: ["XS", "S", "M", "L", "XL"],
-    img: "set-dark-oatmeal.jpg",
-    tag: "SET"
-  },
-  {
-    code: "A03",
-    name: "Light Oatmeal Set",
-    sub: "Short + Playera - Unisex",
-    price: 70.00,
-    sizes: ["XS", "S", "M", "L", "XL"],
-    img: "set-light-oatmeal.jpg",
-    tag: "SET"
-  }
+  {code:"A01",name:"Limo Black Set",sub:"Short + Playera - Unisex",price:70.00,sizes:["XS","S","M","L","XL"],img:"set-limo-black.jpg",tag:"SET"},
+  {code:"A02",name:"Dark Oatmeal Set",sub:"Short + Playera - Unisex",price:70.00,sizes:["XS","S","M","L","XL"],img:"set-dark-oatmeal.jpg",tag:"SET"},
+  {code:"A03",name:"Light Oatmeal Set",sub:"Short + Playera - Unisex",price:70.00,sizes:["XS","S","M","L","XL"],img:"set-light-oatmeal.jpg",tag:"SET"}
 ];
-
-// ── STATE ──
 var activeTab = "scents";
 var cart = [];
 var selectedSize = null;
 var currentProduct = null;
-
-// ── TAB SWITCH ──
 function switchTab(tab) {
   activeTab = tab;
   document.getElementById("tab-scents").classList.toggle("active", tab === "scents");
   document.getElementById("tab-apparel").classList.toggle("active", tab === "apparel");
   renderGrid();
-  var catalogEl = document.getElementById("catalog");
-  if (catalogEl) {
-    catalogEl.scrollIntoView({ behavior: "smooth" });
-  }
+  var el = document.getElementById("catalog");
+  if (el) el.scrollIntoView({behavior:"smooth"});
 }
-
-// ── RENDER GRID ──
 function renderGrid() {
   var grid = document.getElementById("productGrid");
   var products = activeTab === "scents" ? scents : apparel;
-
   if (!products || products.length === 0) {
-    grid.innerHTML = '<div class="empty-state"><p>Coming soon &#8212; check back or DM us on Instagram.</p></div>';
+    grid.innerHTML = "<div class=\"empty-state\"><p>Coming soon. DM us on Instagram.</p></div>";
     return;
   }
-
   var html = "";
   for (var i = 0; i < products.length; i++) {
     var p = products[i];
-    var imgHtml = "";
-    if (p.img) {
-      imgHtml = '<img src="' + p.img + '" alt="' + p.name + '" loading="lazy">';
-    } else {
-      imgHtml = '<span class="prod-placeholder">&#10022;</span>';
-    }
-    html += '<div class="product-card" onclick="openModal(' + i + ')">';
-    html += '  <div class="prod-img-wrap">' + imgHtml + '</div>';
-    html += '  <div class="prod-body">';
-    html += '    <p class="prod-tag">' + (p.tag || "ITEM") + '</p>';
-    html += '    <h3 class="prod-name">' + p.name + '</h3>';
-    html += '    <p class="prod-sub">' + p.sub + '</p>';
-    html += '    <div class="prod-footer">';
-    html += '      <span class="prod-price">$' + p.price.toFixed(2) + '</span>';
-    html += '      <button class="prod-add" onclick="event.stopPropagation(); quickAdd(' + i + ')" aria-label="Add to bag">+</button>';
-    html += '    </div>';
-    html += '  </div>';
-    html += '</div>';
+    var imgH = p.img ? "<img src=\"" + p.img + "\" alt=\"" + p.name + "\" loading=\"lazy\">" : "";
+    html += "<div class=\"product-card\" onclick=\"openModal(" + i + ")\">";
+    html += "<div class=\"prod-img-wrap\">" + imgH + "</div>";
+    html += "<div class=\"prod-body\">";
+    html += "<p class=\"prod-tag\">" + (p.tag || "ITEM") + "</p>";
+    html += "<h3 class=\"prod-name\">" + p.name + "</h3>";
+    html += "<p class=\"prod-sub\">" + p.sub + "</p>";
+    html += "<div class=\"prod-footer\">";
+    html += "<span class=\"prod-price\">$" + p.price.toFixed(2) + "</span>";
+    html += "<button class=\"prod-add\" onclick=\"event.stopPropagation();quickAdd(" + i + ")\">+</button>";
+    html += "</div></div></div>";
   }
   grid.innerHTML = html;
 }
-
-// ── OPEN MODAL ──
 function openModal(index) {
   var products = activeTab === "scents" ? scents : apparel;
   var p = products[index];
+  if (!p) return;
   currentProduct = p;
   selectedSize = p.sizes && p.sizes.length > 0 ? p.sizes[0] : null;
-
-  var imgHtml = "";
-  if (p.img) {
-    imgHtml = '<img src="' + p.img + '" alt="' + p.name + '">';
-  } else {
-    imgHtml = '<span class="modal-placeholder">&#10022;</span>';
-  }
-  document.getElementById("modalImg").innerHTML = imgHtml;
-
-  var sizesHtml = "";
+  var imgH = p.img ? "<img src=\"" + p.img + "\" alt=\"" + p.name + "\">" : "";
+  document.getElementById("modalImg").innerHTML = imgH;
+  var sizesH = "";
   if (p.sizes && p.sizes.length > 0) {
-    sizesHtml = '<p class="size-label">Select Size</p><div class="size-row" id="sizeRow">';
+    sizesH += "<p class=\"size-label\">Select Size</p><div class=\"size-row\">";
     for (var j = 0; j < p.sizes.length; j++) {
-      var activeClass = (j === 0) ? " active" : "";
-      sizesHtml += '<button class="size-btn' + activeClass + '" onclick="selectSize(this, '' + p.sizes[j] + '')">' + p.sizes[j] + '</button>';
+      var ac = j === 0 ? " active" : "";
+      sizesH += "<button class=\"size-btn" + ac + "\" data-size=\"" + p.sizes[j] + "\" onclick=\"selectSize(this)\">" + p.sizes[j] + "</button>";
     }
-    sizesHtml += '</div>';
+    sizesH += "</div>";
   }
-
-  var bodyHtml = "";
-  bodyHtml += '<p class="modal-tag">' + (p.tag || "ITEM") + '</p>';
-  bodyHtml += '<h2 class="modal-name">' + p.name + '</h2>';
-  bodyHtml += '<p class="modal-sub">' + p.sub + '</p>';
-  bodyHtml += '<p class="modal-price">$' + p.price.toFixed(2) + ' USD</p>';
-  bodyHtml += sizesHtml;
-  bodyHtml += '<button class="modal-add" onclick="addToCart()">Add to Bag</button>';
-
-  document.getElementById("modalBody").innerHTML = bodyHtml;
+  var bodyH = "<p class=\"modal-tag\">" + (p.tag||"ITEM") + "</p>";
+  bodyH += "<h2 class=\"modal-name\">" + p.name + "</h2>";
+  bodyH += "<p class=\"modal-sub\">" + p.sub + "</p>";
+  bodyH += "<p class=\"modal-price\">$" + p.price.toFixed(2) + " USD</p>";
+  bodyH += sizesH;
+  bodyH += "<button class=\"modal-add\" onclick=\"addToCart()\">Add to Bag</button>";
+  document.getElementById("modalBody").innerHTML = bodyH;
   document.getElementById("modal").classList.add("open");
   document.body.style.overflow = "hidden";
 }
-
-// ── SIZE SELECT ──
-function selectSize(btn, size) {
-  selectedSize = size;
+function selectSize(btn) {
+  selectedSize = btn.getAttribute("data-size");
   var btns = document.querySelectorAll(".size-btn");
-  for (var k = 0; k < btns.length; k++) {
-    btns[k].classList.remove("active");
-  }
+  for (var k = 0; k < btns.length; k++) btns[k].classList.remove("active");
   btn.classList.add("active");
 }
-
-// ── CLOSE MODAL ──
-function closeModal(e) {
-  if (e.target === document.getElementById("modal")) {
-    closeModalBtn();
-  }
+function closeModalOverlay(e) {
+  if (e.target === document.getElementById("modal")) closeModalBtn();
 }
 function closeModalBtn() {
   document.getElementById("modal").classList.remove("open");
   document.body.style.overflow = "";
 }
-
-// ── QUICK ADD ──
 function quickAdd(index) {
   var products = activeTab === "scents" ? scents : apparel;
   var p = products[index];
-  var size = p.sizes && p.sizes.length > 0 ? p.sizes[0] : null;
-  addItemToCart(p, size);
+  if (!p) return;
+  addItemToCart(p, p.sizes && p.sizes.length > 0 ? p.sizes[0] : null);
 }
-
-// ── ADD TO CART ──
 function addToCart() {
   if (!currentProduct) return;
   addItemToCart(currentProduct, selectedSize);
   closeModalBtn();
 }
-
 function addItemToCart(p, size) {
   var key = p.code + (size ? "-" + size : "");
-  var existing = null;
+  var found = null;
   for (var m = 0; m < cart.length; m++) {
-    if (cart[m].key === key) { existing = cart[m]; break; }
+    if (cart[m].key === key) { found = cart[m]; break; }
   }
-  if (existing) {
-    existing.qty++;
-  } else {
-    cart.push({ key: key, product: p, size: size, qty: 1 });
-  }
+  if (found) { found.qty++; } else { cart.push({key:key,product:p,size:size,qty:1}); }
   updateCart();
   openCart();
 }
-
-// ── UPDATE CART ──
 function updateCart() {
-  var count = 0;
-  var total = 0;
+  var count = 0, total = 0;
   for (var n = 0; n < cart.length; n++) {
     count += cart[n].qty;
     total += cart[n].product.price * cart[n].qty;
   }
-
   var countEl = document.getElementById("cartCount");
-  if (count > 0) {
-    countEl.textContent = count;
-    countEl.style.display = "flex";
-  } else {
-    countEl.style.display = "none";
-  }
-
+  if (count > 0) { countEl.textContent = count; countEl.style.display = "flex"; }
+  else { countEl.style.display = "none"; }
   document.getElementById("cartTotal").textContent = "$" + total.toFixed(2);
-
-  var itemsHtml = "";
+  var html = "";
   if (cart.length === 0) {
-    itemsHtml = '<div class="cart-empty">Your bag is empty</div>';
+    html = "<div class=\"cart-empty\">Your bag is empty</div>";
   } else {
     for (var q = 0; q < cart.length; q++) {
-      var item = cart[q];
-      var imgEl = "";
-      if (item.product.img) {
-        imgEl = '<img src="' + item.product.img + '" alt="' + item.product.name + '">';
-      }
-      itemsHtml += '<div class="cart-item">';
-      itemsHtml += '  <div class="cart-item-img">' + imgEl + '</div>';
-      itemsHtml += '  <div class="cart-item-info">';
-      itemsHtml += '    <p class="cart-item-name">' + item.product.name + '</p>';
-      itemsHtml += '    <p class="cart-item-sub">' + (item.size ? "Size: " + item.size + " - " : "") + 'Qty: ' + item.qty + '</p>';
-      itemsHtml += '    <p class="cart-item-price">$' + (item.product.price * item.qty).toFixed(2) + '</p>';
-      itemsHtml += '  </div>';
-      itemsHtml += '  <button class="cart-item-remove" onclick="removeFromCart('' + item.key + '')">&#10005;</button>';
-      itemsHtml += '</div>';
+      var it = cart[q];
+      var im = it.product.img ? "<img src=\"" + it.product.img + "\" alt=\"" + it.product.name + "\">" : "";
+      html += "<div class=\"cart-item\">";
+      html += "<div class=\"cart-item-img\">" + im + "</div>";
+      html += "<div class=\"cart-item-info\">";
+      html += "<p class=\"cart-item-name\">" + it.product.name + "</p>";
+      html += "<p class=\"cart-item-sub\">" + (it.size ? "Size: " + it.size + " - " : "") + "Qty: " + it.qty + "</p>";
+      html += "<p class=\"cart-item-price\">$" + (it.product.price * it.qty).toFixed(2) + "</p>";
+      html += "</div>";
+      html += "<button class=\"cart-item-remove\" data-key=\"" + it.key + "\" onclick=\"removeFromCart(this)\">&#10005;</button>";
+      html += "</div>";
     }
   }
-  document.getElementById("cartItems").innerHTML = itemsHtml;
+  document.getElementById("cartItems").innerHTML = html;
 }
-
-// ── REMOVE FROM CART ──
-function removeFromCart(key) {
+function removeFromCart(btn) {
+  var key = btn.getAttribute("data-key");
   cart = cart.filter(function(item) { return item.key !== key; });
   updateCart();
 }
-
-// ── OPEN / CLOSE CART ──
 function openCart() {
   document.getElementById("cartDrawer").classList.add("open");
   document.getElementById("cartBackdrop").classList.add("open");
@@ -722,19 +344,10 @@ function closeCart() {
   document.getElementById("cartBackdrop").classList.remove("open");
   document.body.style.overflow = "";
 }
-
-// ── CHECKOUT ──
 function checkout() {
   if (cart.length === 0) { alert("Your bag is empty!"); return; }
-  var msg = "Hi! I want to order:%0A";
-  for (var r = 0; r < cart.length; r++) {
-    var item = cart[r];
-    msg += "- " + item.product.name + (item.size ? " (Size: " + item.size + ")" : "") + " x" + item.qty + "%0A";
-  }
   window.open("https://instagram.com/novusforte97", "_blank");
 }
-
-// ── INIT ──
 renderGrid();
 </script>
 </body>
